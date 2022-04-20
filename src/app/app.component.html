@@ -1,12 +1,24 @@
-<nav class="site-header sticky-top py-1">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
-        <a routerLink="/" routerLinkActive="active" class="navbar-brand">MY APP</a>
-        <a routerLink="/cliente" routerLinkActive="active" class="navbar-brand">First Component</a>
-        <a routerLink="/second" routerLinkActive="active" class="navbar-brand">Second Component</a>
-    </div>
-</nav>
 
-<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+<nav class="navbar navbar-expand-sm bg-light navbar-light">
+    <div class="container-fluid">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+            <a routerLink="/" routerLinkActive="active" class="navbar-brand">MY APP</a>
+        </li>
+       <li class="nav-item">
+        <a *ngIf="login" routerLink="/cliente" routerLinkActive="active" class="navbar-brand">First Component</a>
+        </li>
+        <li class="nav-item">
+            <a *ngIf="login" routerLink="/second" routerLinkActive="active" class="navbar-brand">Second Component</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <span *ngIf="login" style="margin-right: 1rem;display: flex;align-items:center;justify-content:center;">{{ username.toUpperCase() }}</span>
+        <button *ngIf="login" (click)="closeSesion()" class="btn btn-dark">Cerrar sesion</button>
+      </form>
+    </div>
+  </nav>
+
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center">
     <router-outlet></router-outlet>
 </div>
-

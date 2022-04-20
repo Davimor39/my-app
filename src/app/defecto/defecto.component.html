@@ -1,1 +1,5 @@
-<p>defecto works!</p>
+<app-login *ngIf="!app.login"></app-login>
+<div *ngIf="app.login">
+    <h2>Defecto works!</h2>
+</div>
+
